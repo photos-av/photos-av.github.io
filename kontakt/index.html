@@ -68,11 +68,15 @@
             background: #fff;
             padding: 1rem 0;
             border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 200;
         }
 
         nav {
             display: flex;
             justify-content: center;
+            position: relative;
         }
 
         .nav-links {
@@ -143,6 +147,30 @@
             max-width: 420px;
         }
 
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #999;
+            border-radius: 2px;
+            transition: background 0.3s ease;
+        }
+
+        .hamburger:hover span {
+            background: #333;
+        }
+
         /* Buttons */
         .contact-buttons {
             display: flex;
@@ -201,7 +229,7 @@
             margin: 0 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
         }
 
         .footer-links a:hover {
@@ -219,6 +247,38 @@
 
             main {
                 padding: 3rem 0 2rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                justify-content: flex-end;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border-bottom: 1px solid #f0f0f0;
+                padding: 1rem 0;
+                gap: 0;
+                z-index: 100;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
             }
 
             .contact-section {
@@ -242,14 +302,6 @@
                 margin: 0 auto;
                 max-width: 280px;
                 width: 100%;
-            }
-
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .nav-links a {
-                font-size: 0.75rem;
             }
 
             .footer-links {
@@ -281,7 +333,13 @@
 <body>
     <header>
         <nav class="container">
-            <ul class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="../">Home</a></li>
                 <li><a href="." class="active">Kontakt</a></li>
                 <li><a href="../datenschutz/">Datenschutz</a></li>
                 <li><a href="../impressum/">Impressum</a></li>
@@ -328,6 +386,7 @@
     <footer>
         <div class="container">
             <div class="footer-links">
+                <a href="../">Home</a>
                 <a href=".">Kontakt</a>
                 <a href="../datenschutz/">Datenschutz</a>
                 <a href="../impressum/">Impressum</a>
@@ -335,5 +394,10 @@
             <p class="copyright">&copy; 2026 Anastasiia Bilash. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('open');
+        });
+    </script>
 </body>
 </html>

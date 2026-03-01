@@ -78,12 +78,16 @@
             background: #fff;
             padding: 1rem 0;
             border-bottom: 1px solid #f0f0f0;
+            position: sticky;
+            top: 0;
+            z-index: 200;
         }
 
         nav {
             display: flex;
             justify-content: center;
             gap: 3rem;
+            position: relative;
         }
 
         .nav-links {
@@ -104,6 +108,30 @@
         .nav-links a.active {
             color: #333;
             opacity: 1;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #999;
+            border-radius: 2px;
+            transition: background 0.3s ease;
+        }
+
+        .hamburger:hover span {
+            background: #333;
         }
 
         main {
@@ -195,6 +223,7 @@
             margin: 0 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.75rem;
         }
 
         .footer-links a:hover {
@@ -351,12 +380,36 @@
             h3 { font-size: 1.1rem; }
 
             /* Nav */
-            .nav-links {
-                gap: 1.5rem;
+            .hamburger {
+                display: flex;
             }
 
-            .nav-links a {
-                font-size: 0.75rem;
+            nav {
+                justify-content: flex-end;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                border-bottom: 1px solid #f0f0f0;
+                padding: 1rem 0;
+                gap: 0;
+                z-index: 100;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
                 letter-spacing: 0.5px;
             }
 
@@ -499,7 +552,13 @@
 <body>
     <header>
         <nav class="container">
-            <ul class="nav-links text-small">
+            <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links text-small" id="nav-links">
+                <li><a href="." class="active">Home</a></li>
                 <li><a href="kontakt/">Kontakt</a></li>
                 <li><a href="datenschutz/">Datenschutz</a></li>
                 <li><a href="impressum/">Impressum</a></li>
@@ -621,6 +680,7 @@
     <footer>
         <div class="container">
             <div class="footer-links">
+                <a href="." class="text-small">Home</a>
                 <a href="kontakt/" class="text-small">Kontakt</a>
                 <a href="datenschutz/" class="text-small">Datenschutz</a>
                 <a href="impressum/" class="text-small">Impressum</a>
@@ -630,6 +690,10 @@
     </footer>
 
     <script>
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('open');
+        });
+
         function toggleFaq(element) {
             const faqItem = element.parentElement;
             const isActive = faqItem.classList.contains('active');
