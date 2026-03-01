@@ -12,11 +12,49 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
             line-height: 1.6;
             color: #666;
             background-color: #fff;
             min-height: 100vh;
+            overflow-x: hidden;
+            font-size: 16px; /* Base font size */
+        }
+
+        /* Typography Scale */
+        h1 {
+            font-size: 2.5rem; /* 40px */
+            font-weight: 300;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 2rem; /* 32px */
+            font-weight: 300;
+            color: #333;
+        }
+
+        h3 {
+            font-size: 1.25rem; /* 20px */
+            font-weight: 400;
+            color: #666;
+        }
+
+        p {
+            font-size: 1rem; /* 16px */
+            line-height: 1.8;
+        }
+
+        .text-large {
+            font-size: 1.125rem; /* 18px */
+        }
+
+        .text-small {
+            font-size: 0.875rem; /* 14px */
+        }
+
+        .text-xs {
+            font-size: 0.75rem; /* 12px */
         }
 
         .container {
@@ -46,7 +84,6 @@
         .nav-links a {
             text-decoration: none;
             color: #999;
-            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s ease;
@@ -68,14 +105,10 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            color: #333;
             margin-bottom: 2rem;
         }
 
         .intro-text {
-            font-size: 1.1rem;
             color: #999;
             margin-bottom: 3rem;
             line-height: 1.8;
@@ -124,24 +157,20 @@
         }
 
         .profile-text {
-            font-size: 0.95rem;
             color: #666;
-            line-height: 1.8;
             margin-bottom: 2rem;
         }
 
         .cta-text {
-            font-size: 0.95rem;
             color: #999;
-            line-height: 1.8;
         }
 
         footer {
-            background: #f9f9f9;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            background: #333;
+            color: #fff;
             text-align: center;
-            border-top: 1px solid #f0f0f0;
+            padding: 2rem 0;
+            margin-top: 0;
         }
 
         .footer-links {
@@ -149,20 +178,18 @@
         }
 
         .footer-links a {
-            color: #999;
+            color: #fff;
             text-decoration: none;
             margin: 0 1rem;
-            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .footer-links a:hover {
-            color: #333;
+            opacity: 0.7;
         }
 
         .copyright {
-            font-size: 0.8rem;
             color: #ccc;
         }
 
@@ -195,23 +222,158 @@
                 padding: 2rem 0;
             }
         }
+
+        /* FAQ Accordion Styles */
+        .faq-section {
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+
+        .faq-title {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .faq-container {
+            background: #f8f8f8;
+            padding: 3rem 0;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            overflow-x: hidden;
+        }
+
+        .faq-content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .faq-content {
+            flex: 1;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .faq-image {
+            flex-shrink: 0;
+            width: 500px;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .faq-image img {
+            width: 100%;
+            height: 500px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #333;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+        }
+
+        .faq-toggle {
+            font-size: 1.2rem;
+            color: #999;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0;
+            color: #666;
+            line-height: 1.7;
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 0 1.5rem 0;
+            opacity: 1;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            .faq-container {
+                padding: 2rem 0;
+            }
+
+            .faq-content-wrapper {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 0 2rem;
+            }
+
+            .faq-image {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                order: 2;
+            }
+
+            .faq-content {
+                order: 1;
+            }
+
+            .faq-image img {
+                height: 300px;
+            }
+
+            .faq-title {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <ul class="nav-links">
+            <ul class="nav-links text-small">
                 <li><a href="datenschutz/">Datenschutz</a></li>
                 <li><a href="impressum/">Impressum</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main style="padding-bottom: 20px;">
         <div class="container">
             <section class="hero">
                 <h1>Hallo!</h1>
-                <p class="intro-text" style="color: #aa8d74;">
+                <p class="intro-text" style="color: #aa8d74; font-size: 1.25rem;">
                     Ich heiße Anastasiia und lade Sie ein, gemeinsam unvergessliche Erinnerungen durch meine Kamera zu schaffen
                 </p>
             </section>
@@ -242,14 +404,107 @@
         </div>
     </main>
 
+    <section class="faq-section" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="container">
+            <h2 class="faq-title">Fragen und Antworten</h2>
+        </div>
+        
+        <div class="faq-container">
+            <div class="faq-content-wrapper">
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Welche Arten von Fotoshootings biete ich an und welche nicht?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ich spezialisiere mich auf Portraitfotografie, Familienshootings, Paarshootings und Businessportraits. Hochzeiten und Events biete ich derzeit nicht an, da ich mich auf intimere, persönliche Sessions fokussiere.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Wie viele Fotos gebe ich heraus?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Je nach Paket erhalten Sie zwischen 15-50 professionell bearbeitete Bilder in hoher Auflösung. Die genaue Anzahl hängt vom gewählten Shooting-Paket ab.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Welche Sprachen spreche ich?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ich spreche fließend Deutsch, Ukrainisch und Russisch. Englischkenntnisse sind ebenfalls vorhanden, so dass wir uns problemlos verständigen können.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Wie kann man eine Fotosession bestellen?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kontaktieren Sie mich einfach per E-Mail oder Telefon. Wir besprechen Ihre Wünsche, wählen das passende Paket aus und finden einen geeigneten Termin für Ihr Shooting.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Biete ich Unterstützung bei der Auswahl des Outfits für das Fotoshooting?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ja, gerne helfe ich Ihnen bei der Outfit-Auswahl. Ich gebe Ihnen vor dem Shooting Tipps und Empfehlungen, welche Farben und Stile am besten für Ihr gewünschtes Ergebnis geeignet sind.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Biete ich Unterstützung beim Posieren während des Shootings?</h3>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolut! Ich leite Sie während des gesamten Shootings an und helfe Ihnen dabei, sich natürlich und entspannt zu bewegen. Mein Ziel ist es, dass Sie sich wohl fühlen und authentische Momente entstehen.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-image">
+                    <img src="images/faq.jpg" alt="Anastasiia Bilash - FAQ">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="datenschutz/">Datenschutz</a>
-                <a href="impressum/">Impressum</a>
+                <a href="datenschutz/" class="text-small">Datenschutz</a>
+                <a href="impressum/" class="text-small">Impressum</a>
             </div>
-            <p class="copyright">&copy; 2026 Anastasiia Bilash. All rights reserved.</p>
+            <p class="copyright text-small">&copy; 2026 Anastasiia Bilash. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't already active
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
