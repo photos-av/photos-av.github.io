@@ -144,8 +144,8 @@
         }
 
         .profile-image img {
-            width: 300px;
-            height: 300px;
+            width: 350px;
+            height: 350px;
             border-radius: 50%;
             object-fit: cover;
             border: 1px solid #f0f0f0;
@@ -203,36 +203,6 @@
 
         .copyright {
             color: #ccc;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .nav-links a {
-                font-size: 0.8rem;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .profile-section {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .profile-placeholder,
-            .profile-image img {
-                width: 250px;
-                height: 250px;
-            }
-
-            main {
-                padding: 2rem 0;
-            }
         }
 
         /* FAQ Accordion Styles */
@@ -339,34 +309,189 @@
             transform: rotate(45deg);
         }
 
+        /* ── Responsive ─────────────────────────────── */
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .profile-section {
+                gap: 2.5rem;
+                max-width: 100%;
+            }
+
+            .profile-image img {
+                width: 240px;
+                height: 240px;
+            }
+
+            .faq-content-wrapper {
+                gap: 2.5rem;
+                padding: 0 2rem;
+            }
+
+            .faq-image {
+                width: 380px;
+                height: auto;
+            }
+
+            .faq-image img {
+                width: 380px;
+                height: 380px;
+            }
+
+            .faq-content {
+                min-height: 500px;
+            }
+        }
+
+        /* Mobile */
         @media (max-width: 768px) {
+            /* Typography */
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            h3 { font-size: 1.1rem; }
+
+            /* Nav */
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+                letter-spacing: 0.5px;
+            }
+
+            /* Main */
+            main {
+                padding: 2.5rem 0 1rem;
+            }
+
+            /* Hero */
+            .hero {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                margin-bottom: 1.25rem;
+            }
+
+            .intro-text {
+                font-size: 1.05rem !important;
+                margin-bottom: 2rem;
+            }
+
+            /* Profile */
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 0 1rem;
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .profile-image img,
+            .profile-placeholder {
+                width: 65vw;
+                height: 65vw;
+            }
+
+            .profile-text {
+                margin-bottom: 1.25rem;
+            }
+
+            /* FAQ */
+            .faq-section {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+            }
+
+            .faq-title {
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+                padding: 0 1rem;
+            }
+
             .faq-container {
                 padding: 2rem 0;
             }
 
             .faq-content-wrapper {
                 flex-direction: column;
-                gap: 2rem;
-                padding: 0 2rem;
-            }
-
-            .faq-image {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-                order: 2;
+                gap: 0;
+                padding: 0 1.25rem;
             }
 
             .faq-content {
+                order: 2;
+                min-height: unset;
+            }
+
+            .faq-image {
                 order: 1;
+                width: 100%;
+                height: auto;
+                margin: 0 auto 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .faq-image img {
-                height: 300px;
+                width: 65vw;
+                height: 65vw;
+                border-radius: 50%;
+                object-fit: cover;
             }
 
-            .faq-title {
-                font-size: 2rem;
+            .faq-question {
+                padding: 1.1rem 0;
+            }
+
+            .faq-item.active .faq-answer {
+                max-height: 300px;
+            }
+
+            /* Footer */
+            footer {
+                padding: 1.5rem 0;
+            }
+
+            .footer-links {
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .footer-links a {
+                margin: 0;
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.4rem; }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .profile-image img,
+            .profile-placeholder {
+                width: 55vw;
+                height: 55vw;
+            }
+
+            .faq-content-wrapper {
+                padding: 0 1rem;
+            }
+
+            .faq-image,
+            .faq-image img {
+                width: 55vw;
+                height: 55vw;
             }
         }
     </style>
